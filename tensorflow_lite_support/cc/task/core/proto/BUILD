@@ -62,6 +62,14 @@ cc_proto_library(
     ],
 )
 
+cc_library(
+    name = "classifications_proto_inc",
+    hdrs = ["classifications_proto_inc.h"],
+    deps = [
+        ":classifications_cc_proto",
+    ],
+)
+
 proto_library(
     name = "class_proto",
     srcs = ["class.proto"],

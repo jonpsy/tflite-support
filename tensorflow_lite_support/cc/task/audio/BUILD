@@ -1,0 +1,29 @@
+package(
+    default_visibility = [
+        "//visibility:public",
+    ],
+    licenses = ["notice"],  # Apache 2.0
+)
+
+cc_library(
+    name = "audio_classifier",
+    srcs = ["audio_classifier.cc"],
+    hdrs = ["audio_classifier.h"],
+    deps = [
+        "//tensorflow_lite_support/cc:common",
+        "//tensorflow_lite_support/cc/port:statusor",
+        "//tensorflow_lite_support/cc/task/audio/core:audio_format",
+        "//tensorflow_lite_support/cc/task/audio/proto:audio_classifier_options_cc_proto",
+        "//tensorflow_lite_support/cc/task/core:base_task_api",
+        "//tensorflow_lite_support/cc/task/core:classification_head",
+        "//tensorflow_lite_support/cc/task/core:label_map_item",
+        "//tensorflow_lite_support/cc/task/core:task_api_factory",
+        "//tensorflow_lite_support/cc/task/core:task_utils",
+        "//tensorflow_lite_support/cc/task/core/proto:classifications_proto_inc",
+        "@com_google_absl//absl/status",
+        "@com_google_absl//absl/strings:str_format",
+        "@org_tensorflow//tensorflow/lite/core/api:op_resolver",
+        "@org_tensorflow//tensorflow/lite/core/shims:builtin_ops",
+    ],
+    alwayslink = 1,
+)
